@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Astra Chatbot – User Manual</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+      color: #333;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1, h2 {
+      color: #0066cc;
+    }
+    section {
+      margin-bottom: 30px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select, textarea, button {
+      margin-top: 5px;
+      padding: 8px;
+      width: 100%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .output {
+      background: #e8f4ff;
+      padding: 10px;
+      border-left: 4px solid #3399ff;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Astra Chatbot – Interactive User Manual</h1>
+
+  <section>
+    <h2>1. Introduction</h2>
+    <p>Astra is a voice-enabled AI chatbot designed to help with daily tasks, reminders, and conversations. This manual helps you get started and explore Astra’s features.</p>
+  </section>
+
+  <section>
+    <h2>2. User Preferences</h2>
+    <label for="username">Enter your name:</label>
+    <input type="text" id="username" placeholder="e.g., Jitendra">
+
+    <label for="theme">Choose your preferred theme:</label>
+    <select id="theme">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+
+    <label for="voice">Select voice type:</label>
+    <select id="voice">
+      <option value="female">Female</option>
+      <option value="male">Male</option>
+      <option value="robot">Robot</option>
+    </select>
+
+    <button onclick="savePreferences()">Save Preferences</button>
+    <div class="output" id="prefOutput"></div>
+  </section>
+
+  <section>
+    <h2>3. Try Chatbot Commands</h2>
+    <label for="commandInput">Type a command you want to try:</label>
+    <input type="text" id="commandInput" placeholder="e.g., Set a timer for 5 minutes">
+    <button onclick="simulateCommand()">Simulate</button>
+    <div class="output" id="commandOutput"></div>
+  </section>
+
+  <section>
+    <h2>4. Features Overview</h2>
+    <ul>
+      <li><strong>Voice Activation:</strong> Say "Hey Astra" or tap mic.</li>
+      <li><strong>Text Input:</strong> Type directly in the chat box.</li>
+      <li><strong>Utilities:</strong> Timer, Alarm, To-Do List, Date/Time, Calculator</li>
+      <li><strong>Customization:</strong> Voice, Theme, Personality</li>
+      <li><strong>Learning:</strong> Astra remembers user preferences.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>5. Troubleshooting</h2>
+    <p><strong>Issue:</strong> Voice not working? <br><strong>Solution:</strong> Check microphone permission in your browser.</p>
+    <p><strong>Issue:</strong> Not responding? <br><strong>Solution:</strong> Refresh the page or retype your query.</p>
+  </section>
+
+  <script>
+    function savePreferences() {
+      const name = document.getElementById("username").value;
+      const theme = document.getElementById("theme").value;
+      const voice = document.getElementById("voice").value;
+
+      const output = `Hello ${name || 'User'}, your preferences are saved:
+      - Theme: ${theme.charAt(0).toUpperCase() + theme.slice(1)}
+      - Voice: ${voice.charAt(0).toUpperCase() + voice.slice(1)}`;
+
+      document.getElementById("prefOutput").innerText = output;
+    }
+
+    function simulateCommand() {
+      const command = document.getElementById("commandInput").value.trim();
+      if (command === '') {
+        document.getElementById("commandOutput").innerText = "Please enter a command.";
+        return;
+      }
+
+      let response = "Astra says: ";
+      if (command.toLowerCase().includes("timer")) {
+        response += "Timer started!";
+      } else if (command.toLowerCase().includes("alarm")) {
+        response += "Alarm set successfully!";
+      } else if (command.toLowerCase().includes("date") || command.toLowerCase().includes("time")) {
+        response += `Current date/time is: ${new Date().toLocaleString()}`;
+      } else {
+        response += "Command received. Processing...";
+      }
+
+      document.getElementById("commandOutput").innerText = response;
+    }
+  </script>
+
+</body>
+</html>
