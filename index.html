@@ -7,6 +7,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Hamburger Icon -->
+<div class="hamburger" id="hamburger" onclick="toggleSidebar()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- Sidebar Menu -->
+<div class="sidebar" id="sidebar">
+  <ul>
+    <li onclick="typeMessage(helpMe())"><i class="fas fa-question-circle"></i> Help</li>
+    <li onclick="typeMessage(randomjokes())"><i class="fas fa-laugh"></i> Tell a Joke</li>
+    <li onclick="typeMessage(randomMotivation())"><i class="fas fa-bolt"></i> Motivate Me</li>
+    <li onclick="typeMessage('I am Astra, your personal AI assistant!')"><i class="fas fa-robot"></i> About Astra</li>
+    <li onclick="typeMessage('Logging out...')"><i class="fas fa-sign-out-alt"></i> Logout</li>
+  </ul>
+</div>
+  
   <div class="chat-container">
     <header>
       <img src="https://cdn-icons-png.flaticon.com/512/4712/4712074.png" class="avatar" alt="Astra Avatar" />
