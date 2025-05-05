@@ -338,27 +338,7 @@ function takeCommand(message) {
 }
 // End of the Code
 
-function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    const hamburger = document.getElementById("hamburger");
-    hamburger.classList.toggle("active");
-    sidebar.style.right = sidebar.style.right === "0px" ? "-260px" : "0px";
-  }
-
-  // Dummy functions for demo
-  function helpMe() {
-    return "Here are some things you can ask me: weather, time, jokes, reminders, etc.";
-  }
-
-  function randomjokes() {
-    return "Why did the AI go to therapy? It had deep learning issues.";
-  }
-
-  function randomMotivation() {
-    return "Keep pushing forward, you're doing great!";
-  }
-
-  function typeMessage(msg) {
-    alert(msg); // Replace this with chatbot message logic
-  }
-
+  hamburger.addEventListener("click", function () {
+  hamburger.classList.toggle("active");
+  sidebar.style.left = sidebar.style.left === "0px" ? "-260px" : "0px";
+});
