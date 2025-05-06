@@ -347,6 +347,12 @@ function takeCommand(message) {
 
 const placeholders = [
   "Ask anything...",
+  "How can I i help you...",
+  "Tell me a joke...",
+  "Calculate...",
+  "Open Youtube...",
+  "Open Facebook...",
+  "Open Instagram...",
   "What can you do?",
   "Set a timer for 10 minutes",
   "Convert 50 USD to INR",
@@ -381,7 +387,7 @@ function typeEffect() {
     }
   }
 
-  setTimeout(typeEffect, isDeleting ? 50 : 100); // Typing/deleting speed
+  setTimeout(typeEffect, isDeleting ? 70 : 120); // Typing/deleting speed
 }
 
 typeEffect();
