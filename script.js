@@ -342,3 +342,46 @@ function takeCommand(message) {
   hamburger.classList.toggle("active");
   sidebar.style.left = sidebar.style.left === "0px" ? "-260px" : "0px";
 });
+
+// Placeholder Typing Animation
+
+const placeholders = [
+  "Ask anything...",
+  "What can you do?",
+  "Set a timer for 10 minutes",
+  "Convert 50 USD to INR",
+  "Tell me a fun fact"
+];
+
+let index = 0;
+let charIndex = 0;
+let isDeleting = false;
+const inputField = document.getElementById("userInput");
+
+function typeEffect() {
+  const current = placeholders[index];
+  let displayedText = current.substring(0, charIndex);
+
+  inputField.setAttribute("placeholder", displayedText);
+
+  if (!isDeleting) {
+    if (charIndex < current.length) {
+      charIndex++;
+    } else {
+      isDeleting = true;
+      setTimeout(typeEffect, 1000); // Pause before deleting
+      return;
+    }
+  } else {
+    if (charIndex > 0) {
+      charIndex--;
+    } else {
+      isDeleting = false;
+      index = (index + 1) % placeholders.length;
+    }
+  }
+
+  setTimeout(typeEffect, isDeleting ? 50 : 100); // Typing/deleting speed
+}
+
+typeEffect();
