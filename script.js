@@ -347,16 +347,12 @@ function takeCommand(message) {
 
 const placeholders = [
   "Ask anything...",
-  "How can I i help you...",
+  "How can I help you...",
   "Tell me a joke...",
   "Calculate...",
   "Open Youtube...",
   "Open Facebook...",
-  "Open Instagram...",
-  "What can you do?",
-  "Set a timer for 10 minutes",
-  "Convert 50 USD to INR",
-  "Tell me a fun fact"
+  "Open Instagram..."
 ];
 
 let index = 0;
